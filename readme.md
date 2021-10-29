@@ -14,11 +14,14 @@ Core Fueatures
 
 > Please aware this is a just boilerplatte so  you can extend it, add or remove your costum features.
 >
- # Please create .env file including these veriables:
- - DB_URI // mongo db driver uri
- - PORT // localhost port
- - HASH // bcyript password hash code. 
- - SECRET // Jwt Secret
+  
+*Please create .env file including these veriables:
+ ```jsx
+ DB_URI // mongo db driver uri
+ PORT // localhost port
+ HASH // bcyript password hash code. 
+ SECRET // Jwt Secret
+```
 
 # Installation
 
