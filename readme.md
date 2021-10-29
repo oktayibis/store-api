@@ -1,4 +1,3 @@
-# Store - API
 
 # Store API
 
