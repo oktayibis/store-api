@@ -14,7 +14,8 @@ Core Fueatures
 - Coding with Typescript
 
 > Please aware this is a just boilerplatte so  you can extend it, add or remove your costum features.
-> Please create .env file including these veriables:
+>
+ # Please create .env file including these veriables:
  - DB_URI // mongo db driver uri
  - PORT // localhost port
  - HASH // bcyript password hash code. 
