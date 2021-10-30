@@ -21,7 +21,7 @@ export function ErrorResponse(error: Error, message = "Hatalı işlem", code = 5
     data: error,
     errorCode: code,
     isError: true,
-    message,
+    message: error.message || message,
     responseStatus: true,
     responseTime: new Date()
   };

@@ -1,5 +1,5 @@
 import express from "express"
-import { config } from "dotenv"
+import {config} from "dotenv"
 import routes from "./routes"
 import connect from "./loaders/db"
 const app: express.Application = express()

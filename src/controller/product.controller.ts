@@ -4,15 +4,15 @@ import { ProductValidation, ProductStockItemValidation } from "../validations/pr
 
 import { ErrorResponse, ErrorResponseWithMessage, SuccessResponse, ValidationErrorResponse, calculateNetPrice } from "../utils/helpers";
 import { IProduct } from "../Interfaces";
+
 // -- /api/v1/products
 export async function getAllProducts(req: express.Request, res: express.Response) {
   try {
     const list = await ProductSchemas.find({});
-    console.log(list);
-
     if (!list || list.length === 0) {
       return res.status(404).send(ErrorResponseWithMessage("Ürün Girişi yapılmamış"));
     }
+
     return res.status(200).send(SuccessResponse(list));
 
   } catch (error: any) {
@@ -30,7 +30,6 @@ export async function addProduct(req: express.Request, res: express.Response) {
   try {
     const product = new ProductSchemas(body);
     product.netPrice = calculateNetPrice(product.isDiscount, product.price, product.discountAmount);
-    console.log("product", product);
 
     const savedProduct = await product.save();
 
@@ -128,15 +127,41 @@ export async function addToStock(req: express.Request, res: express.Response) {
     if (!product) {
       return res.status(404).send(ErrorResponseWithMessage("Ürün bulunamadı."));
     }
-    const updatedObject = product.toObject();
+    const updatedObject: IProduct = product.toObject() as any;
     const isStockExist = updatedObject.stockStatus?.find(x => x.color?.toString() === body.color && x.size === body.size);
+
     if (isStockExist) {
       isStockExist.quantity += body.quantity;
     } else {
       updatedObject.stockStatus?.push(body);
     }
-    const response = await product.update(updatedObject);
 
+    const response = await ProductSchemas.findByIdAndUpdate(productId || updatedObject._id, updatedObject, { new: true });
+
+    return res.status(200).send(SuccessResponse(response));
+
+  } catch (error: any) {
+    return res.status(500).send(ErrorResponse(error));
+
+  }
+}
+
+export async function deleteFromStock(req: express.Request, res: express.Response) {
+  const { stockId, productId } = req.body;
+  if (!stockId || !productId) {
+    return res.status(400).send(ErrorResponseWithMessage(`Lütfen ürün ve stock Id bilgilerini geçiniz. stockId:${stockId}, productId: ${productId}`));
+  }
+
+  try {
+    const product = await ProductSchemas.findById(productId);
+    if (!product) {
+      return res.status(404).send(ErrorResponseWithMessage("Ürün koduyla bulunamadı."));
+    }
+    const productObject: IProduct = product.toObject();
+    productObject.stockStatus = productObject?.stockStatus?.filter((x: any) => x._id.toString() !== stockId);
+
+    const savedProduct = await ProductSchemas.findByIdAndUpdate(productId, productObject, { new: true });
+    return res.status(200).send(SuccessResponse(savedProduct));
   } catch (error: any) {
     return res.status(500).send(ErrorResponse(error));
 

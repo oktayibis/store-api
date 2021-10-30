@@ -1,13 +1,14 @@
 import mongoose, { Schema } from "mongoose";
 import { IProduct } from "../Interfaces";
-const slug = require("mongoose-slug-updater")
-mongoose.plugin(slug)
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const slug = require("mongoose-slug-updater");
+mongoose.plugin(slug);
 
 
 const ProductSchema = new Schema<IProduct>({
   category: {
     type: [String],
-    required:[true, "En az bir kategori girmelisiniz."]
+    required: [true, "En az bir kategori girmelisiniz."]
   },
   discountAmount: {
     type: Number,
@@ -22,18 +23,18 @@ const ProductSchema = new Schema<IProduct>({
   },
   metas: {
     type: [String],
-    required:[true, "En az 1 adet meta bilgisi giriniz."]
+    required: [true, "En az 1 adet meta bilgisi giriniz."]
   },
   name: {
     type: String,
-    required: [true,"Ürün ismini yazmalısınız."]
+    required: [true, "Ürün ismini yazmalısınız."]
   },
   netPrice: {
     type: Number
   },
   price: {
     type: Number,
-    required:[true, "Lütfen fiyat bilgisini giriniz."]
+    required: [true, "Lütfen fiyat bilgisini giriniz."]
   },
   rating: {
     type: Number,
@@ -42,22 +43,27 @@ const ProductSchema = new Schema<IProduct>({
     type: String,
     slug: ["name", "meta"],
     slugPaddingSize: 4,
-    unique:true
+    unique: true
   },
-  stockStatus: {
-    type: [{
-      color: Schema.Types.ObjectId,
+  stockStatus: [
+    {
+      color: {
+        type: Schema.Types.ObjectId,
+        ref: "Color",
+        required: true
+      },
       size: {
         type: String,
-        enum: ["xs","s","m","l","xl","xxl"]
+        enum: ["xs", "s", "m", "l", "xl", "xxl"],
+        required: true
       },
       quantity: {
         type: Number,
-        required:true
+        required: true
       }
-    }]
-  },
+    }
+  ],
 
-}, { versionKey: false, timestamps: true })
+}, { versionKey: false, timestamps: true });
 
-export default mongoose.model("Product", ProductSchema)
+export default mongoose.model("Product", ProductSchema);

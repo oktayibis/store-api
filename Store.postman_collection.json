@@ -1,0 +1,1371 @@
+{
+	"info": {
+		"_postman_id": "78575525-01e3-4632-b59b-9ead64d09f70",
+		"name": "Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Detail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "364"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16c-yA6FtS0ANnHXDAdMa58oHcTG6ec\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Oct 2021 20:45:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617c58f24bf34474bb96e36d\",\n        \"email\": \"oktay@oktay.com\",\n        \"fullName\": \"Oktay İbiş\",\n        \"sex\": \"Erkek\",\n        \"lastLogin\": \"2021-10-29T20:45:14.609Z\",\n        \"role\": \"user\",\n        \"carts\": [],\n        \"createdAt\": \"2021-10-29T20:26:26.352Z\",\n        \"updatedAt\": \"2021-10-29T20:45:14.612Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-29T20:45:18.819Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var token = JSON.parse(responseBody).token;",
+									"pm.collectionVariables.set(\"token\", token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"oktay@oktay.com\",\n    \"password\": \"1234567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"oktay@oktay.com\",\n    \"password\": \"1234567\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "570"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23a-z5f+Rpkoe8UmBqO0hbmiLRGXg3k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Oct 2021 20:45:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617c58f24bf34474bb96e36d\",\n        \"email\": \"oktay@oktay.com\",\n        \"fullName\": \"Oktay İbiş\",\n        \"sex\": \"Erkek\",\n        \"lastLogin\": \"2021-10-29T20:45:44.623Z\",\n        \"role\": \"user\",\n        \"carts\": [],\n        \"createdAt\": \"2021-10-29T20:26:26.352Z\",\n        \"updatedAt\": \"2021-10-29T20:45:44.623Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-29T20:45:44.724Z\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTdjNThmMjRiZjM0NDc0YmI5NmUzNmQiLCJyb2xlIjoidXNlciIsImlhdCI6MTYzNTU0MDM0NCwiZXhwIjoxNjM1NTQzOTQ0fQ.Y14BODMTQcnVcjD05txfZXNYSklanpwF8BoUUuN6bLA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gozde2@gozde.com\",\n    \"password\": \"20212021\",\n    \"fullName\": \"Gözde Balkanlı\",\n    \"sex\":\"None\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"gozde@gozde.com\",\n    \"password\": \"20212021\",\n    \"fullName\": \"Gözde Balkanlı\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "377"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"179-Wf48kfURPRLSrIasuf+8YESwX7U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Oct 2021 20:46:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"email\": \"gozde@gozde.com\",\n        \"fullName\": \"Gözde Balkanlı\",\n        \"sex\": \"Belirtilmemiş\",\n        \"lastLogin\": \"2021-10-29T20:44:49.827Z\",\n        \"role\": \"user\",\n        \"_id\": \"617c5d97bc8a5ba81ddff04c\",\n        \"carts\": [],\n        \"createdAt\": \"2021-10-29T20:46:15.811Z\",\n        \"updatedAt\": \"2021-10-29T20:46:15.811Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-29T20:46:15.906Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "829"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33d-I6XUfMRb+qcpwic+VHl3NWjO1OU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:36:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"617d80382e0df705b1cd5a4b\",\n            \"category\": [\n                \"Yeni\",\n                \"Desenli\"\n            ],\n            \"discountAmount\": 5,\n            \"featured\": false,\n            \"isDiscount\": true,\n            \"metas\": [\n                \"özel desenli\",\n                \"ay figür\",\n                \"yeni sezon\"\n            ],\n            \"name\": \"Ay Desenli Gömelek\",\n            \"price\": 120,\n            \"stockStatus\": [],\n            \"netPrice\": 114,\n            \"createdAt\": \"2021-10-30T17:26:16.514Z\",\n            \"updatedAt\": \"2021-10-30T19:35:20.856Z\",\n            \"slug\": \"ay-desenli-goemelek-0001\"\n        },\n        {\n            \"_id\": \"617d9e3f15478935347a2c63\",\n            \"category\": [\n                \"Yeni\",\n                \"Desenli\"\n            ],\n            \"discountAmount\": 0,\n            \"featured\": false,\n            \"isDiscount\": false,\n            \"metas\": [\n                \"özel desenli\",\n                \"ay figür\",\n                \"yeni sezon\"\n            ],\n            \"name\": \"Ay Desenli Gömelek\",\n            \"price\": 120,\n            \"stockStatus\": [],\n            \"netPrice\": 120,\n            \"createdAt\": \"2021-10-30T19:34:24.001Z\",\n            \"updatedAt\": \"2021-10-30T19:34:24.001Z\",\n            \"slug\": \"ay-desenli-goemelek\"\n        }\n    ],\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:36:01.089Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Prodcut By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products/:productId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "617d9f5b15478935347a2c7e"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Prodcut By Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/:productId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "617d9e3f15478935347a2c63"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "472"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d8-OjT99aBqWBCRkHzGe4UTrt2MS34\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:36:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d9e3f15478935347a2c63\",\n        \"category\": [\n            \"Yeni\",\n            \"Desenli\"\n        ],\n        \"discountAmount\": 0,\n        \"featured\": false,\n        \"isDiscount\": false,\n        \"metas\": [\n            \"özel desenli\",\n            \"ay figür\",\n            \"yeni sezon\"\n        ],\n        \"name\": \"Ay Desenli Gömelek\",\n        \"price\": 120,\n        \"stockStatus\": [],\n        \"netPrice\": 120,\n        \"createdAt\": \"2021-10-30T19:34:24.001Z\",\n        \"updatedAt\": \"2021-10-30T19:34:24.001Z\",\n        \"slug\": \"ay-desenli-goemelek\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:36:51.483Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Prodcut By Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products/slug/:slug",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"slug",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "ay-desenli-goemelek-0003"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Prodcut By Slug",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/slug/:slug",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"slug",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "ay-desenli-goemelek-0001"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "476"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1dc-junZ32StsIxdZXkDLxKKovsRzG8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:38:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d80382e0df705b1cd5a4b\",\n        \"category\": [\n            \"Yeni\",\n            \"Desenli\"\n        ],\n        \"discountAmount\": 5,\n        \"featured\": false,\n        \"isDiscount\": true,\n        \"metas\": [\n            \"özel desenli\",\n            \"ay figür\",\n            \"yeni sezon\"\n        ],\n        \"name\": \"Ay Desenli Gömelek\",\n        \"price\": 120,\n        \"stockStatus\": [],\n        \"netPrice\": 114,\n        \"createdAt\": \"2021-10-30T17:26:16.514Z\",\n        \"updatedAt\": \"2021-10-30T19:35:20.856Z\",\n        \"slug\": \"ay-desenli-goemelek-0001\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:38:08.014Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Ay Desenli Gömelek\",\n    \"price\":120,\n    \"isDiscount\":false,\n    \"featured\":false,\n    \"discountAmount\":0,\n    \"metas\": [\"özel desenli\", \"ay figür\",\"yeni sezon\"],\n    \"category\": [\"Yeni\", \"Desenli\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Ay Desenli Gömelek\",\n    \"price\":120,\n    \"isDiscount\":false,\n    \"featured\":false,\n    \"discountAmount\":0,\n    \"metas\": [\"özel desenli\", \"ay figür\",\"yeni sezon\"],\n    \"category\": [\"Yeni\", \"Desenli\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/products/add",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "472"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d8-3CPjLAzWkaPRQ+qBJRGCmcpBReE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:34:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"category\": [\n            \"Yeni\",\n            \"Desenli\"\n        ],\n        \"discountAmount\": 0,\n        \"featured\": false,\n        \"isDiscount\": false,\n        \"metas\": [\n            \"özel desenli\",\n            \"ay figür\",\n            \"yeni sezon\"\n        ],\n        \"name\": \"Ay Desenli Gömelek\",\n        \"price\": 120,\n        \"_id\": \"617d9e3f15478935347a2c63\",\n        \"stockStatus\": [],\n        \"netPrice\": 120,\n        \"createdAt\": \"2021-10-30T19:34:24.001Z\",\n        \"updatedAt\": \"2021-10-30T19:34:24.001Z\",\n        \"slug\": \"ay-desenli-goemelek\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:34:24.175Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add or Update Stock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\":\"617d9aeac34bce499b712a37\",\n    \"size\":\"s\",\n    \"quantity\":10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/stock/:productId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"stock",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "617d9f5b15478935347a2c7e"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add or Update Stock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"color\":\"617d9aeac34bce499b712a37\",\n    \"size\":\"s\",\n    \"quantity\":10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/products/stock/:productId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"stock",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "617d9f5b15478935347a2c7e"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "666"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29a-qBUtbVflIthKYZjSAX7/Nki1CIk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:44:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d9f5b15478935347a2c7e\",\n        \"category\": [\n            \"Yeni\",\n            \"Desenli\"\n        ],\n        \"discountAmount\": 0,\n        \"featured\": false,\n        \"isDiscount\": false,\n        \"metas\": [\n            \"özel desenli\",\n            \"ay figür\",\n            \"yeni sezon\"\n        ],\n        \"name\": \"Ay Desenli Gömelek\",\n        \"price\": 120,\n        \"stockStatus\": [\n            {\n                \"color\": \"617d9aeac34bce499b712a37\",\n                \"size\": \"l\",\n                \"quantity\": 10,\n                \"_id\": \"617db450f260bbd9d4148650\"\n            },\n            {\n                \"color\": \"617d9aeac34bce499b712a37\",\n                \"size\": \"s\",\n                \"quantity\": 30,\n                \"_id\": \"617dbc8064c9a07e31fe92f5\"\n            }\n        ],\n        \"netPrice\": 120,\n        \"createdAt\": \"2021-10-30T19:39:07.305Z\",\n        \"updatedAt\": \"2021-10-30T21:44:39.673Z\",\n        \"slug\": \"ay-desenli-goemelek-0003\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T21:44:39.843Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Ay Desenli Gömelek\",\n    \"price\":120,\n    \"isDiscount\":true,\n    \"featured\":false,\n    \"discountAmount\":5,\n    \"metas\": [\"özel desenli\", \"ay figür\",\"yeni sezon\"],\n    \"category\": [\"Yeni\", \"Desenli\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/:productId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "617d9ef315478935347a2c71"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Ay Desenli Gömelek\",\n    \"price\":120,\n    \"isDiscount\":true,\n    \"featured\":false,\n    \"discountAmount\":5,\n    \"metas\": [\"özel desenli\", \"ay figür\",\"yeni sezon\"],\n    \"category\": [\"Yeni\", \"Desenli\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/products/:productId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "617d80382e0df705b1cd5a4b"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "476"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1dc-v+jhtNF5u1Qs05sPeoVLyJ8Z5kU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:35:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d80382e0df705b1cd5a4b\",\n        \"category\": [\n            \"Yeni\",\n            \"Desenli\"\n        ],\n        \"discountAmount\": 5,\n        \"featured\": false,\n        \"isDiscount\": true,\n        \"metas\": [\n            \"özel desenli\",\n            \"ay figür\",\n            \"yeni sezon\"\n        ],\n        \"name\": \"Ay Desenli Gömelek\",\n        \"price\": 120,\n        \"stockStatus\": [],\n        \"netPrice\": 114,\n        \"createdAt\": \"2021-10-30T17:26:16.514Z\",\n        \"updatedAt\": \"2021-10-30T19:35:20.856Z\",\n        \"slug\": \"ay-desenli-goemelek-0001\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:35:21.023Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products/:productId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "617d9ef315478935347a2c71"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/:productId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "617d80382e0df705b1cd5a4b"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "476"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1dc-vmEOuuvQDiHw3UVYWsZ3n+qb1nc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:38:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d80382e0df705b1cd5a4b\",\n        \"category\": [\n            \"Yeni\",\n            \"Desenli\"\n        ],\n        \"discountAmount\": 5,\n        \"featured\": false,\n        \"isDiscount\": true,\n        \"metas\": [\n            \"özel desenli\",\n            \"ay figür\",\n            \"yeni sezon\"\n        ],\n        \"name\": \"Ay Desenli Gömelek\",\n        \"price\": 120,\n        \"stockStatus\": [],\n        \"netPrice\": 114,\n        \"createdAt\": \"2021-10-30T17:26:16.514Z\",\n        \"updatedAt\": \"2021-10-30T19:35:20.856Z\",\n        \"slug\": \"ay-desenli-goemelek-0001\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:38:46.560Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Stock",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"617d9f5b15478935347a2c7e\",\n    \"stockId\":\"617db459f260bbd9d4148657\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/stock",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"stock"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Stock",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\": \"617d9f5b15478935347a2c7e\",\n    \"stockId\":\"617db459f260bbd9d4148657\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/products/stock",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"stock"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "571"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23b-i5FhXVh0csiQMuQaPNmUusBrDtM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 21:43:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d9f5b15478935347a2c7e\",\n        \"category\": [\n            \"Yeni\",\n            \"Desenli\"\n        ],\n        \"discountAmount\": 0,\n        \"featured\": false,\n        \"isDiscount\": false,\n        \"metas\": [\n            \"özel desenli\",\n            \"ay figür\",\n            \"yeni sezon\"\n        ],\n        \"name\": \"Ay Desenli Gömelek\",\n        \"price\": 120,\n        \"stockStatus\": [\n            {\n                \"color\": \"617d9aeac34bce499b712a37\",\n                \"size\": \"l\",\n                \"quantity\": 10,\n                \"_id\": \"617db450f260bbd9d4148650\"\n            }\n        ],\n        \"netPrice\": 120,\n        \"createdAt\": \"2021-10-30T19:39:07.305Z\",\n        \"updatedAt\": \"2021-10-30T21:43:05.108Z\",\n        \"slug\": \"ay-desenli-goemelek-0003\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T21:43:05.307Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Color",
+			"item": [
+				{
+					"name": "Get Colors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/colors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"colors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Colors",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/colors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"colors"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "357"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"165-kZkamVTnHUPH7Wa04eMmgRKOlFo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:25:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"617d9aeac34bce499b712a37\",\n            \"code\": \"#fefefe\",\n            \"name\": \"Cırtlak Beyaz\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"617d9c11520f2322cd25c0ed\",\n            \"code\": \"#000000\",\n            \"name\": \"Koyu Siyah\",\n            \"createdAt\": \"2021-10-30T19:25:05.376Z\",\n            \"updatedAt\": \"2021-10-30T19:25:05.376Z\"\n        }\n    ],\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:25:33.769Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Color",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Koyu Siyah\",\n    \"code\":\"#000000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/colors/add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"colors",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Color",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Koyu Siyah\",\n    \"code\":\"#000000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/colors/add",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"colors",
+										"add"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "271"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10f-dv4Osv4xJ1XfCelcmNzhQylr4tY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:25:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"code\": \"#000000\",\n        \"name\": \"Koyu Siyah\",\n        \"_id\": \"617d9c11520f2322cd25c0ed\",\n        \"createdAt\": \"2021-10-30T19:25:05.376Z\",\n        \"updatedAt\": \"2021-10-30T19:25:05.376Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:25:05.461Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Color",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/colors/:colorId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"colors",
+								":colorId"
+							],
+							"variable": [
+								{
+									"key": "colorId",
+									"value": "617d9b13b8a5acc094d65174"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Color",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/colors/:colorId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"colors",
+										":colorId"
+									],
+									"variable": [
+										{
+											"key": "colorId",
+											"value": "617d9b13b8a5acc094d65174"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "275"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"113-XTipCpRJQieXO/kuldWkTfFwmrM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:24:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d9b13b8a5acc094d65174\",\n        \"code\": \"#fefefe\",\n        \"name\": \"Cırtlak Beyaz\",\n        \"createdAt\": \"2021-10-30T19:20:51.943Z\",\n        \"updatedAt\": \"2021-10-30T19:20:51.943Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:24:42.138Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Color",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Sadece Siyah\",\n    \"code\":\"#000000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/colors/:colorId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"colors",
+								":colorId"
+							],
+							"variable": [
+								{
+									"key": "colorId",
+									"value": "617d9c11520f2322cd25c0ed"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Color",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Sadece Siyah\",\n    \"code\":\"#000000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/colors/:colorId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"colors",
+										":colorId"
+									],
+									"variable": [
+										{
+											"key": "colorId",
+											"value": "617d9c11520f2322cd25c0ed"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"111-L7GHLjKcbkv3zuGQEDlMefSLQJ8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:33:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d9c11520f2322cd25c0ed\",\n        \"code\": \"#000000\",\n        \"name\": \"Sadece Siyah\",\n        \"createdAt\": \"2021-10-30T19:25:05.376Z\",\n        \"updatedAt\": \"2021-10-30T19:33:08.790Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:33:08.886Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:5001/api/v1"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}

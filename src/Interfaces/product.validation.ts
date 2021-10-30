@@ -14,7 +14,7 @@ export interface IProduct {
   netPrice?: number;
   price: number;
   rating?: number;
-  slug: string;
+  slug?: string;
   stockStatus?: IProductItem[];
 }
 
@@ -26,7 +26,7 @@ export interface IProductColor {
 
 export interface IProductItem {
   _id?: string;
-  color?: IProductColor;
-  quantity?: string;
-  size?: string;
+  color?: string;
+  quantity?: number;
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 }
