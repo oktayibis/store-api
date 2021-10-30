@@ -1,6 +1,6 @@
 import express from "express"
 import jwt from "jsonwebtoken"
-import { ErrorResponse, ErrorResponseWithMessage } from "../utils/Helpers"
+import { ErrorResponse, ErrorResponseWithMessage } from "../utils/helpers"
 
 export default function CheckUserTokenValid(req: express.Request, res: express.Response, next:express.NextFunction) {
   const authHeader = req.headers.authorization

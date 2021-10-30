@@ -2,7 +2,7 @@ import express from "express"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import User from "../schemas/User.schemas";
-import { ErrorResponse, ErrorResponseWithMessage, SuccessResponse, SuccessResponseWithCostumField, ValidationErrorResponse } from "../utils/Helpers";
+import { ErrorResponse, ErrorResponseWithMessage, SuccessResponse, SuccessResponseWithCostumField, ValidationErrorResponse } from "../utils/helpers";
 import { RegisterUser, LoginUser } from "../validations/user.validation";
 import { IRegisterUser } from "../Interfaces/user.validation";
 
@@ -78,7 +78,7 @@ export async function login(req:express.Request, res:express.Response) {
     
     registeredUser.lastLogin = new Date();
     const updatedUser = await User.findByIdAndUpdate(registeredUser._id, registeredUser, {new:true})
-    return res.status(200).send(SuccessResponseWithCostumField(updatedUser.toObject(), {token}))
+    return res.status(200).send(SuccessResponseWithCostumField(updatedUser?.toObject(), {token}))
     
   } catch (error:any) {
     return res.status(500).send(ErrorResponse(error))
