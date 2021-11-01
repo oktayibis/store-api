@@ -3,5 +3,6 @@
  * Do not modify this file manually
  */
 
+export * from './cart.validation';
 export * from './product.validation';
 export * from './user.validation';

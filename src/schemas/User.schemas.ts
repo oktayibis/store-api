@@ -1,4 +1,4 @@
-import mongoose, {Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { IRegisterUser } from "../Interfaces";
 
 
@@ -6,47 +6,46 @@ const UserSchema = new Schema<IRegisterUser>({
   email: {
     type: String,
     required: true,
-    unique:true
+    unique: true
   },
   password: {
     type: String,
     required: true,
-    minlength:6
+    minlength: 6
   },
   fullName: {
     type: String,
-    required:true
+    required: true
   },
   birthDate: {
-    type:Date
+    type: Date
   },
   sex: {
     type: String,
     enum: ["Erkek", "Kadın", "Belirtilmemiş"],
-    default:"Belirtilmemiş"
+    default: "Belirtilmemiş"
   },
   lastLogin: {
     type: Date,
-    default:new Date()
+    default: new Date()
   },
   role: {
     type: String,
     enum: ["user", "admin"],
     required: true,
-    default:"user"
+    default: "user"
   },
   carts: {
     type: [{
       productId: {
         type: Schema.Types.ObjectId,
-        ref:"Product"
+        ref: "Product",
       },
-      amount: {
+      quantity: {
         type: Number,
-        required:true
       },
-      addInfo: {
-        type:Object
+      size: {
+        type: String,
       }
     }]
   },
@@ -54,6 +53,6 @@ const UserSchema = new Schema<IRegisterUser>({
     type: String
   }
 
-}, { timestamps: true, versionKey: false })
+}, { timestamps: true, versionKey: false });
 
-export default mongoose.model("User", UserSchema)
+export default mongoose.model("User", UserSchema);

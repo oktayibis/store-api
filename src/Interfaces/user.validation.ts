@@ -3,6 +3,8 @@
  * Do not modify this file manually
  */
 
+import { ICart } from '.';
+
 export interface ILoginUser {
   email: string;
   password: string;
@@ -11,7 +13,7 @@ export interface ILoginUser {
 export interface IRegisterUser {
   _id?: string;
   birthDate?: Date;
-  carts?: string[];
+  carts?: ICart[];
   email: string;
   fullName: string;
   lastLogin?: Date;
