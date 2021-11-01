@@ -1138,89 +1138,6 @@
 					]
 				},
 				{
-					"name": "Delete Color",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/colors/:colorId",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"colors",
-								":colorId"
-							],
-							"variable": [
-								{
-									"key": "colorId",
-									"value": "617d9b13b8a5acc094d65174"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Delete Color",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{url}}/colors/:colorId",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"colors",
-										":colorId"
-									],
-									"variable": [
-										{
-											"key": "colorId",
-											"value": "617d9b13b8a5acc094d65174"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "275"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"113-XTipCpRJQieXO/kuldWkTfFwmrM\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 30 Oct 2021 19:24:42 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"_id\": \"617d9b13b8a5acc094d65174\",\n        \"code\": \"#fefefe\",\n        \"name\": \"Cırtlak Beyaz\",\n        \"createdAt\": \"2021-10-30T19:20:51.943Z\",\n        \"updatedAt\": \"2021-10-30T19:20:51.943Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:24:42.138Z\"\n}"
-						}
-					]
-				},
-				{
 					"name": "Update Color",
 					"request": {
 						"method": "PUT",
@@ -1320,12 +1237,440 @@
 							"body": "{\n    \"data\": {\n        \"_id\": \"617d9c11520f2322cd25c0ed\",\n        \"code\": \"#000000\",\n        \"name\": \"Sadece Siyah\",\n        \"createdAt\": \"2021-10-30T19:25:05.376Z\",\n        \"updatedAt\": \"2021-10-30T19:33:08.790Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:33:08.886Z\"\n}"
 						}
 					]
+				},
+				{
+					"name": "Delete Color",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/colors/:colorId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"colors",
+								":colorId"
+							],
+							"variable": [
+								{
+									"key": "colorId",
+									"value": "617d9b13b8a5acc094d65174"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Color",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/colors/:colorId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"colors",
+										":colorId"
+									],
+									"variable": [
+										{
+											"key": "colorId",
+											"value": "617d9b13b8a5acc094d65174"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "275"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"113-XTipCpRJQieXO/kuldWkTfFwmrM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 30 Oct 2021 19:24:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617d9b13b8a5acc094d65174\",\n        \"code\": \"#fefefe\",\n        \"name\": \"Cırtlak Beyaz\",\n        \"createdAt\": \"2021-10-30T19:20:51.943Z\",\n        \"updatedAt\": \"2021-10-30T19:20:51.943Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-30T19:24:42.138Z\"\n}"
+						}
+					]
 				}
 			]
 		},
 		{
 			"name": "Cart",
-			"item": []
+			"item": [
+				{
+					"name": "Get Cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/cart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Cart",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/cart",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "362"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16a-3M/dA+HF0bryvbjdyM2RHXEhfUM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Nov 2021 21:22:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617c58f24bf34474bb96e36d\",\n        \"carts\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 4,\n                \"size\": \"l\",\n                \"_id\": \"61805674ea1318655ff2de72\"\n            },\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 4,\n                \"size\": \"s\",\n                \"_id\": \"61805a92b36a8424fd9ed45f\"\n            }\n        ]\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-01T21:22:37.522Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add to Cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\":\"617d9f5b15478935347a2c7e\",\n    \"size\":\"s\",\n    \"quantity\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add to Cart",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\":\"617d9f5b15478935347a2c7e\",\n    \"size\":\"s\",\n    \"quantity\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/cart",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "362"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16a-fvLwkmJImwoJqxKo4VCN2RBsuCo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Nov 2021 21:22:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617c58f24bf34474bb96e36d\",\n        \"carts\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 4,\n                \"size\": \"l\",\n                \"_id\": \"61805674ea1318655ff2de72\"\n            },\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 4,\n                \"size\": \"s\",\n                \"_id\": \"61805a92b36a8424fd9ed45f\"\n            }\n        ]\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-01T21:22:30.141Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Cart Item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\":\"617d9f5b15478935347a2c7e\",\n    \"size\":\"l\",\n    \"quantity\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cart/:cartItemId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart",
+								":cartItemId"
+							],
+							"variable": [
+								{
+									"key": "cartItemId",
+									"value": "61805a92b36a8424fd9ed45f"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Cart Item",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\":\"617d9f5b15478935347a2c7e\",\n    \"size\":\"s\",\n    \"quantity\":14\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/cart/:cartItemId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart",
+										":cartItemId"
+									],
+									"variable": [
+										{
+											"key": "cartItemId",
+											"value": "61805a92b36a8424fd9ed45f"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "265"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"109-FbXikiiRt3mRrniyZMbqktfGu74\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Nov 2021 21:40:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617c58f24bf34474bb96e36d\",\n        \"carts\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 14,\n                \"size\": \"s\",\n                \"_id\": \"61805a92b36a8424fd9ed45f\"\n            }\n        ]\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-01T21:40:03.878Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete from Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cartItemId\":\"61805674ea1318655ff2de72\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/cart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete from Cart",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cartItemId\":\"61805674ea1318655ff2de72\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/cart",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"108-vcx2oklOEJ4yARpXiFa8eHiRyuU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Nov 2021 21:23:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"617c58f24bf34474bb96e36d\",\n        \"carts\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 4,\n                \"size\": \"s\",\n                \"_id\": \"61805a92b36a8424fd9ed45f\"\n            }\n        ]\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-01T21:23:07.542Z\"\n}"
+						}
+					]
+				}
+			]
 		}
 	],
 	"auth": {
