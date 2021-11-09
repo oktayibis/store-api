@@ -11,7 +11,8 @@ const UserSchema = new Schema<IRegisterUser>({
   password: {
     type: String,
     required: true,
-    minlength: 6
+    minlength: 6,
+      select:false,
   },
   fullName: {
     type: String,
