@@ -55,6 +55,10 @@ const UserSchema = new Schema<IRegisterUser>(
     phone: {
       type: String,
     },
+    orderHistory: {
+      type: Schema.Types.ObjectId,
+      ref: "Order",
+    },
   },
   { timestamps: true, versionKey: false }
 );

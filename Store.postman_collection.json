@@ -96,7 +96,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"oktay@oktay.com\",\n    \"password\": \"1234567\"\n}",
+							"raw": "{\n    \"email\": \"oktay@oktay.com\",\n    \"password\": \"112233\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -264,6 +264,273 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": {\n        \"email\": \"gozde@gozde.com\",\n        \"fullName\": \"Gözde Balkanlı\",\n        \"sex\": \"Belirtilmemiş\",\n        \"lastLogin\": \"2021-10-29T20:44:49.827Z\",\n        \"role\": \"user\",\n        \"_id\": \"617c5d97bc8a5ba81ddff04c\",\n        \"carts\": [],\n        \"createdAt\": \"2021-10-29T20:46:15.811Z\",\n        \"updatedAt\": \"2021-10-29T20:46:15.811Z\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-10-29T20:46:15.906Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset Password Step 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"oktay@oktay.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/reset-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"reset-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reset Password Step 1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"oktay@oktay.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/reset-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"reset-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "160"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a0-xTExR1oR6xFydx+5bOikuzZXtaI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Nov 2021 18:24:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"resetCode\": \"144444\"\n    },\n    \"isError\": false,\n    \"message\": \"Şifre sıfırlama kodu gönderildi.\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-09T18:24:15.153Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset Password Step 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"oktay@oktay.com\",\n    \"resetCode\": \"144444\",\n    \"password\": \"112233\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/reset-password-confirm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"reset-password-confirm"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reset Password Step 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"oktay@oktay.com\",\n    \"resetCode\": \"144444\",\n    \"password\": \"112233\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/reset-password-confirm",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"reset-password-confirm"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7c-K6TeoiTcG7I13O/+cUEWGBbdkRk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Nov 2021 18:24:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {},\n    \"isError\": false,\n    \"message\": \"Şifre Güncellendi.\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-09T18:24:21.378Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"123456\",\n    \"newPassword\": \"112233\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/change-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"change-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Change Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"123456\",\n    \"newPassword\": \"112233\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"change-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7c-eYypxJgCYf+9l7blZUwT/Ohiv2Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Nov 2021 18:29:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {},\n    \"isError\": false,\n    \"message\": \"Şifre Güncellendi.\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-09T18:29:35.951Z\"\n}"
 						}
 					]
 				}
@@ -1590,7 +1857,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"cartItemId\":\"61805674ea1318655ff2de72\"\n}",
+							"raw": "{\n    \"cartItemId\":\"61805a92b36a8424fd9ed45f\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1667,6 +1934,189 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": {\n        \"_id\": \"617c58f24bf34474bb96e36d\",\n        \"carts\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 4,\n                \"size\": \"s\",\n                \"_id\": \"61805a92b36a8424fd9ed45f\"\n            }\n        ]\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-01T21:23:07.542Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"carts\": [\n        {\n            \"productId\": \"617d9f5b15478935347a2c7e\",\n            \"quantity\": 3,\n            \"size\": \"s\"\n        },\n        {\n            \"productId\": \"617d9f5b15478935347a2c7e\",\n            \"quantity\": 2,\n            \"size\": \"l\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/payment",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"payment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Payment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"carts\": [\n        {\n            \"productId\": \"617d9f5b15478935347a2c7e\",\n            \"quantity\": 3,\n            \"size\": \"s\"\n        },\n        {\n            \"productId\": \"617d9f5b15478935347a2c7e\",\n            \"quantity\": 2,\n            \"size\": \"l\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/order/payment",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"payment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "201"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c9-o9/UYX0x/LsisAt/HpDfEfRDZ3A\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Nov 2021 20:57:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"clientSecret\": \"pi_3Ju1NR2x6R10KRrh0h2zHyoG_secret_VvVIT8TEizESgfMv7VH0FbsCy\"\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-09T20:57:10.155Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Order Status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\":\"618aeadf7175256f1f1a5d1a\",\n    \"status\":\"paymentFail\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Order Status",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"orderId\":\"618aeadf7175256f1f1a5d1a\",\n    \"status\":\"paymentFail\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/order/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"status"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "697"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b9-REAIDEuo3AUvWM5itrAR1YLdYBU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Nov 2021 22:02:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"618aeadf7175256f1f1a5d1a\",\n        \"user\": \"617c58f24bf34474bb96e36d\",\n        \"stripeSecretKey\": \"pi_3Ju23f2x6R10KRrh0E0jDWcM_secret_LGUjEmzOWP8zLCYQtiPzRXWdw\",\n        \"products\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 3,\n                \"size\": \"s\",\n                \"isReturned\": false,\n                \"_id\": \"618aeadf7175256f1f1a5d1b\"\n            },\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 2,\n                \"size\": \"l\",\n                \"isReturned\": false,\n                \"_id\": \"618aeadf7175256f1f1a5d1c\"\n            }\n        ],\n        \"cargoNumber\": null,\n        \"statusExplanation\": \"Ödeme Başarısız.\",\n        \"orderDate\": \"2021-11-09T21:40:47.161Z\",\n        \"status\": \"paymentFail\",\n        \"paymentMethod\": \"credit-card\",\n        \"totalPrice\": 600,\n        \"__v\": 0\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-09T22:02:04.432Z\"\n}"
 						}
 					]
 				}

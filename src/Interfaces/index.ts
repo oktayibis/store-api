@@ -4,5 +4,6 @@
  */
 
 export * from "./cart.validation";
+export * from "./order.validation";
 export * from "./product.validation";
 export * from "./user.validation";

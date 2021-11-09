@@ -17,6 +17,13 @@ export interface IRegisterUser {
   email: string;
   fullName: string;
   lastLogin?: Date;
+  orderHistory?: (
+    | string
+    | {
+        _bsontype?: "ObjectId";
+        id?: any;
+      }
+  )[];
   password: string;
   phone?: string;
   role?: string;
