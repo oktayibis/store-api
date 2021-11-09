@@ -1,4 +1,3 @@
-
 import express from "express";
 import products from "./product.routes";
 import user from "./user.routes";
@@ -11,8 +10,5 @@ app.use(apiPrefix + "/products", products);
 app.use(apiPrefix + "/user", user);
 app.use(apiPrefix + "/colors", colors);
 app.use(apiPrefix + "/cart", cart);
-
-
-
 
 export default app;

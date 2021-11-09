@@ -1,9 +1,9 @@
 export interface IHttpRequestResponse {
-  data: object | object[] | null,
-  isError: boolean,
-  responseStatus: boolean,
-  responseTime: Date,
-  message:string
+  data: object | object[] | null;
+  isError: boolean;
+  responseStatus: boolean;
+  responseTime: Date;
+  message: string;
 }
 
 export interface IErrorResponse extends IHttpRequestResponse {
@@ -11,7 +11,7 @@ export interface IErrorResponse extends IHttpRequestResponse {
 }
 
 export interface IResponseWithPagination extends IHttpRequestResponse {
-  currentPage: number,
-  limit: number,
-  totalPages:number
+  currentPage: number;
+  limit: number;
+  totalPages: number;
 }

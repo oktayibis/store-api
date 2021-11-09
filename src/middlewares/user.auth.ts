@@ -1,11 +1,17 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import { ErrorResponse, ErrorResponseWithMessage } from "../utils/helpers";
+import { ErrorResponseWithMessage } from "../utils/helpers";
 
-export default function CheckUserTokenValid(req: express.Request, res: express.Response, next: express.NextFunction) {
+export default function CheckUserTokenValid(
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).send(ErrorResponseWithMessage("Token bilgisi gelmedi", 400));
+    return res
+      .status(401)
+      .send(ErrorResponseWithMessage("Token bilgisi gelmedi", 400));
   }
   try {
     const token = authHeader.split(" ")[1]; // take token from header
@@ -18,7 +24,10 @@ export default function CheckUserTokenValid(req: express.Request, res: express.R
 
     next();
   } catch (error) {
-    return res.status(401).send(ErrorResponseWithMessage("Token geçersiz, tekrar giriş yapınız", 400));
+    return res
+      .status(401)
+      .send(
+        ErrorResponseWithMessage("Token geçersiz, tekrar giriş yapınız", 400)
+      );
   }
 }
-

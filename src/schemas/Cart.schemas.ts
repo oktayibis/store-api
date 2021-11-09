@@ -5,16 +5,16 @@ import { SIZES } from "../utils/constants";
 const CartSchema = new Schema<ICart>({
   productId: {
     type: Schema.Types.ObjectId,
-    ref: "Product"
+    ref: "Product",
   },
   quantity: {
     type: Number,
-    required: true
+    required: true,
   },
   size: {
     type: String,
-    enum: SIZES
-  }
+    enum: SIZES,
+  },
 });
 
 export default mongoose.model("Cart", CartSchema);

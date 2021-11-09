@@ -5,10 +5,12 @@
 
 export interface ICart {
   _id?: string;
-  productId: string | {
-    _bsontype?: 'ObjectId';
-    id?: any;
-  };
+  productId:
+    | string
+    | {
+        _bsontype?: "ObjectId";
+        id?: any;
+      };
   quantity: number;
-  size: 'xs' | 's' | 'm' | 'l' | 'xl';
+  size: "xs" | "s" | "m" | "l" | "xl";
 }

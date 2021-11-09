@@ -3,7 +3,7 @@
  * Do not modify this file manually
  */
 
-import { ICart } from '.';
+import { ICart } from ".";
 
 export interface ILoginUser {
   email: string;

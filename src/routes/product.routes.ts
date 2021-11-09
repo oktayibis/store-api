@@ -1,6 +1,13 @@
 import express from "express";
 import {
-  getAllProducts, addProduct, deleteProductWithId, getProductById, getProductBySlug, updateProduct, addToStock, deleteFromStock
+  getAllProducts,
+  addProduct,
+  deleteProductWithId,
+  getProductById,
+  getProductBySlug,
+  updateProduct,
+  addToStock,
+  deleteFromStock,
 } from "../controller/product.controller";
 
 const router = express.Router();

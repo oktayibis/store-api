@@ -11,10 +11,10 @@ export const RegisterUser = Joi.object({
   lastLogin: Joi.date(),
   role: Joi.string(),
   carts: Joi.array().items(CartValidations),
-  phone: Joi.string()
+  phone: Joi.string(),
 }).meta({ className: "IRegisterUser" });
 
 export const LoginUser = Joi.object({
   email: Joi.string().required(),
-  password: Joi.string().required().min(6)
+  password: Joi.string().required().min(6),
 }).meta({ className: "ILoginUser" });
