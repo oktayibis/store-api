@@ -872,7 +872,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"color\":\"617d9aeac34bce499b712a37\",\n    \"size\":\"s\",\n    \"quantity\":10\n}",
+							"raw": "{\n    \"color\":\"617d9c11520f2322cd25c0ed\",\n    \"size\":\"l\",\n    \"quantity\":10\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1669,7 +1669,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"productId\":\"617d9f5b15478935347a2c7e\",\n    \"size\":\"s\",\n    \"quantity\":1\n}",
+							"raw": "{\n    \"productId\":\"617d9f5b15478935347a2c7e\",\n    \"size\":\"s\",\n    \"quantity\":2,\n    \"color\":\"617d9aeac34bce499b712a37\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1857,7 +1857,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"cartItemId\":\"61805a92b36a8424fd9ed45f\"\n}",
+							"raw": "{\n    \"cartItemId\":\"618beb101632ec9dcf945cb1\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1949,7 +1949,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"carts\": [\n        {\n            \"productId\": \"617d9f5b15478935347a2c7e\",\n            \"quantity\": 3,\n            \"size\": \"s\"\n        },\n        {\n            \"productId\": \"617d9f5b15478935347a2c7e\",\n            \"quantity\": 2,\n            \"size\": \"l\"\n        }\n    ]\n}",
+							"raw": "{\n    \"carts\": [\n        {\n            \"productId\": \"617d9f5b15478935347a2c7e\",\n            \"quantity\": 2,\n            \"size\": \"s\",\n            \"color\": \"617d9aeac34bce499b712a37\",\n            \"_id\": \"618c1508f7d1f7fcd839e457\"\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2034,11 +2034,11 @@
 				{
 					"name": "Update Order Status",
 					"request": {
-						"method": "PATCH",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"orderId\":\"618aeadf7175256f1f1a5d1a\",\n    \"status\":\"paymentFail\"\n}",
+							"raw": "{\n    \"orderId\":\"618be00a3e52aae1bd58d55b\",\n    \"status\":\"paymentFail\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2117,6 +2117,631 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": {\n        \"_id\": \"618aeadf7175256f1f1a5d1a\",\n        \"user\": \"617c58f24bf34474bb96e36d\",\n        \"stripeSecretKey\": \"pi_3Ju23f2x6R10KRrh0E0jDWcM_secret_LGUjEmzOWP8zLCYQtiPzRXWdw\",\n        \"products\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 3,\n                \"size\": \"s\",\n                \"isReturned\": false,\n                \"_id\": \"618aeadf7175256f1f1a5d1b\"\n            },\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 2,\n                \"size\": \"l\",\n                \"isReturned\": false,\n                \"_id\": \"618aeadf7175256f1f1a5d1c\"\n            }\n        ],\n        \"cargoNumber\": null,\n        \"statusExplanation\": \"Ödeme Başarısız.\",\n        \"orderDate\": \"2021-11-09T21:40:47.161Z\",\n        \"status\": \"paymentFail\",\n        \"paymentMethod\": \"credit-card\",\n        \"totalPrice\": 600,\n        \"__v\": 0\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-09T22:02:04.432Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Success Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\": \"618c09ac09dd0a3989b2c9b1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/payment-success",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"payment-success"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"orderId\": \"618c09ac09dd0a3989b2c9b1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/order/payment-success",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"payment-success"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "767"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2ff-JoOCuV1SPk+T1QdCG7N4MKOV8qw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Nov 2021 18:08:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"_id\": \"618c09ac09dd0a3989b2c9b1\",\n        \"user\": \"617da8d73c6df6852f4aed90\",\n        \"stripeSecretKey\": \"pi_3JuL9s2x6R10KRrh0I2ojdE6_secret_yzL0Rr7L5jE6claZztYb6khOF\",\n        \"products\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 1,\n                \"size\": \"l\",\n                \"color\": \"617d9aeac34bce499b712a37\",\n                \"isReturned\": false,\n                \"_id\": \"618c09ac09dd0a3989b2c9b2\"\n            },\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 3,\n                \"size\": \"s\",\n                \"color\": \"617d9c11520f2322cd25c0ed\",\n                \"isReturned\": false,\n                \"_id\": \"618c09ac09dd0a3989b2c9b3\"\n            }\n        ],\n        \"cargoNumber\": null,\n        \"statusExplanation\": \"Ödeme Onaylandı\",\n        \"orderDate\": \"2021-11-10T18:04:28.276Z\",\n        \"status\": \"paymentSuccess\",\n        \"paymentMethod\": \"credit-card\",\n        \"totalPrice\": 480,\n        \"__v\": 0\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-10T18:08:40.032Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/order",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/order",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1841"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"731-an4vhFmEqG1LfNhHym2YzePPQQg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Nov 2021 18:34:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"_id\": \"618ae9c8062a4f983afe7e0d\",\n            \"user\": \"617c58f24bf34474bb96e36d\",\n            \"stripeSecretKey\": \"pi_3Ju1zA2x6R10KRrh1TyRU1oP_secret_Avod56rXvxoUA19wC3dqFQab5\",\n            \"products\": [\n                {\n                    \"productId\": \"617d9f5b15478935347a2c7e\",\n                    \"quantity\": 3,\n                    \"size\": \"s\",\n                    \"isReturned\": false,\n                    \"_id\": \"618ae9c8062a4f983afe7e0e\"\n                },\n                {\n                    \"productId\": \"617d9f5b15478935347a2c7e\",\n                    \"quantity\": 2,\n                    \"size\": \"l\",\n                    \"isReturned\": false,\n                    \"_id\": \"618ae9c8062a4f983afe7e0f\"\n                }\n            ],\n            \"cargoNumber\": null,\n            \"statusExplanation\": \"Ödeme Onaylandı\",\n            \"orderDate\": \"2021-11-09T21:36:08.448Z\",\n            \"status\": \"paymentSuccess\",\n            \"__v\": 0,\n            \"paymentMethod\": \"credit-card\"\n        },\n        {\n            \"_id\": \"618aeadf7175256f1f1a5d1a\",\n            \"user\": \"617c58f24bf34474bb96e36d\",\n            \"stripeSecretKey\": \"pi_3Ju23f2x6R10KRrh0E0jDWcM_secret_LGUjEmzOWP8zLCYQtiPzRXWdw\",\n            \"products\": [\n                {\n                    \"productId\": \"617d9f5b15478935347a2c7e\",\n                    \"quantity\": 3,\n                    \"size\": \"s\",\n                    \"isReturned\": false,\n                    \"_id\": \"618aeadf7175256f1f1a5d1b\"\n                },\n                {\n                    \"productId\": \"617d9f5b15478935347a2c7e\",\n                    \"quantity\": 2,\n                    \"size\": \"l\",\n                    \"isReturned\": false,\n                    \"_id\": \"618aeadf7175256f1f1a5d1c\"\n                }\n            ],\n            \"cargoNumber\": null,\n            \"statusExplanation\": \"Ödeme Başarısız.\",\n            \"orderDate\": \"2021-11-09T21:40:47.161Z\",\n            \"status\": \"paymentFail\",\n            \"paymentMethod\": \"credit-card\",\n            \"totalPrice\": 600,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"618be00a3e52aae1bd58d55b\",\n            \"user\": \"617c58f24bf34474bb96e36d\",\n            \"stripeSecretKey\": \"pi_3JuINy2x6R10KRrh1shay7WL_secret_O8R7EiIikeHeO35afRoZlB9qU\",\n            \"products\": [\n                {\n                    \"productId\": \"617d9f5b15478935347a2c7e\",\n                    \"quantity\": 3,\n                    \"size\": \"s\",\n                    \"isReturned\": false,\n                    \"_id\": \"618be00a3e52aae1bd58d55c\"\n                },\n                {\n                    \"productId\": \"617d9f5b15478935347a2c7e\",\n                    \"quantity\": 2,\n                    \"size\": \"l\",\n                    \"isReturned\": false,\n                    \"_id\": \"618be00a3e52aae1bd58d55d\"\n                }\n            ],\n            \"cargoNumber\": null,\n            \"statusExplanation\": \"Ödeme sonucu bekleniyor\",\n            \"orderDate\": \"2021-11-10T15:06:50.497Z\",\n            \"status\": \"paymentWaiting\",\n            \"paymentMethod\": \"credit-card\",\n            \"totalPrice\": 600,\n            \"__v\": 0\n        }\n    ],\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-10T18:34:04.407Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Orders [Admin]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/order/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Cargo Number",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"orderId\": \"618c151ef7d1f7fcd839e460\",\n    \"cargoNumber\": \"93900093313\",\n    \"cargoCompany\": \"Yurt içi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/order/cargo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"cargo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Cargo Number",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"orderId\": \"618c151ef7d1f7fcd839e460\",\n    \"cargoNumber\": \"93900093313\",\n    \"cargoCompany\": \"Yurt içi\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/order/cargo",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"cargo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "655"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28f-k1TXPd1c1vGCTtH2q7xVeQHd+Uo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Nov 2021 19:26:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"cargoCompany\": \"Yurt içi\",\n        \"_id\": \"618c151ef7d1f7fcd839e460\",\n        \"user\": \"617c58f24bf34474bb96e36d\",\n        \"stripeSecretKey\": \"pi_3JuLv82x6R10KRrh1zhKKWD8_secret_kuzhaZRrv3uvOhLisNR7uo0Bw\",\n        \"products\": [\n            {\n                \"productId\": \"617d9f5b15478935347a2c7e\",\n                \"quantity\": 2,\n                \"size\": \"s\",\n                \"color\": \"617d9aeac34bce499b712a37\",\n                \"isReturned\": false,\n                \"_id\": \"618c151ef7d1f7fcd839e461\"\n            }\n        ],\n        \"cargoNumber\": \"93900093313\",\n        \"statusExplanation\": \"Siparişler Kargoya Verildi.\",\n        \"orderDate\": \"2021-11-10T18:53:18.944Z\",\n        \"status\": \"inCargo\",\n        \"paymentMethod\": \"credit-card\",\n        \"totalPrice\": 240,\n        \"__v\": 0\n    },\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-10T19:26:17.952Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Enums",
+			"item": [
+				{
+					"name": "Get Sizes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/enums/sizes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enums",
+								"sizes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Sizes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/enums/sizes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"enums",
+										"sizes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "145"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"91-A5yyp2nJNgvmmYRJPm5rLVq9uMA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Nov 2021 19:34:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        \"xs\",\n        \"s\",\n        \"m\",\n        \"l\",\n        \"xl\"\n    ],\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-10T19:34:58.503Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Payment Methods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/enums/payments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enums",
+								"payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Payment Methods",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/enums/payments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"enums",
+										"payments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a4-Z1zbA/VY2Mjl+yuY7D3mAeH1oXE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Nov 2021 19:35:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        \"credit-card\",\n        \"transfer\",\n        \"paypal\",\n        \"cash\"\n    ],\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-10T19:35:38.178Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Status Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/enums/status",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enums",
+								"status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Status Types",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/enums/status",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"enums",
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "213"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d5-KECIkRAifGCK0HLIfo9YEsV4zT8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Nov 2021 19:35:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        \"paymentWaiting\",\n        \"paymentSuccess\",\n        \"paymentFail\",\n        \"orderPrep\",\n        \"inCargo\",\n        \"delivered\",\n        \"error\"\n    ],\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-10T19:35:58.658Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/enums/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enums",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/enums/categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"enums",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-Ueal99wxvsoQZO8Kj1DurEM0ENs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Nov 2021 19:40:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        \"Desenli\",\n        \"Yeni\"\n    ],\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-10T19:40:42.626Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Metas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/enums/metas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"enums",
+								"metas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Metas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/enums/metas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"enums",
+										"metas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a4-w/7MsSaJIJRmDxThXp3z7GkOavE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Nov 2021 19:43:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        \"ay figür\",\n        \"yeni sezon\",\n        \"özel desenli\"\n    ],\n    \"isError\": false,\n    \"message\": \"İşlem başırılı\",\n    \"responseStatus\": true,\n    \"responseTime\": \"2021-11-10T19:43:19.339Z\"\n}"
 						}
 					]
 				}
