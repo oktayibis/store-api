@@ -15,6 +15,7 @@ const CartSchema = new Schema<ICart>({
     type: String,
     enum: SIZES,
   },
+  color: Schema.Types.ObjectId,
 });
 
 export default mongoose.model("Cart", CartSchema);

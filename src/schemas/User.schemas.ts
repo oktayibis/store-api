@@ -49,6 +49,7 @@ const UserSchema = new Schema<IRegisterUser>(
           size: {
             type: String,
           },
+          color: Schema.Types.ObjectId,
         },
       ],
     },

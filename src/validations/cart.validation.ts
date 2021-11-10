@@ -15,4 +15,7 @@ export const CartValidations = Joi.object({
   size: Joi.string()
     .required()
     .valid(...SIZES),
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  color: Joi.objectId().required(),
 }).meta({ className: "ICart" });

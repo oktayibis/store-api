@@ -4,6 +4,12 @@
  */
 
 export interface IOrder {
+  color:
+    | string
+    | {
+        _bsontype?: "ObjectId";
+        id?: any;
+      };
   isReturned: boolean;
   productId:
     | string

@@ -1,5 +1,11 @@
 import express from "express";
-import { ICart, IOrderHistory, IProduct } from "../Interfaces";
+import {
+  ICart,
+  IOrder,
+  IOrderHistory,
+  IProduct,
+  IProductItem,
+} from "../Interfaces";
 import { CartValidations } from "../validations/cart.validation";
 import {
   ErrorResponse,
@@ -12,6 +18,7 @@ import Stripe from "stripe";
 import ProductSchema from "../schemas/Product.schemas";
 import OrderSchemas from "../schemas/Order.schemas";
 import { ORDER_STATUS, STATUS_EXPLAINATION } from "../utils/constants";
+import UserSchema from "../schemas/User.schemas";
 
 export async function addOrder(req: express.Request, res: express.Response) {
   const carts: Array<ICart> = req.body.carts;
@@ -71,6 +78,7 @@ export async function addOrder(req: express.Request, res: express.Response) {
           quantity: cart.quantity,
           isReturned: false,
           size: cart.size,
+          color: cart.color,
         };
       }),
       stripeSecretKey: paymentIntent.client_secret,
@@ -80,6 +88,10 @@ export async function addOrder(req: express.Request, res: express.Response) {
 
     const order = new OrderSchemas(orderHistory);
     const savedOrder = await order.save();
+    // make user's cart empty
+    const userCart = await UserSchema.findById(user.userId);
+    userCart.carts = [];
+    await userCart.save();
     return res.status(201).send(
       SuccessResponseWithCostumField(savedOrder, {
         stripeSecretKey: paymentIntent.client_secret,
@@ -126,5 +138,109 @@ export async function changeOrderStatus(
     return res.status(201).send(SuccessResponse(savedOrder));
   } catch (e) {
     return res.status(500).send(ErrorResponse(e));
+  }
+}
+
+export async function getOrderHistory(
+  req: express.Request,
+  res: express.Response
+) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const { user } = req;
+  try {
+    const orders = await OrderSchemas.find({ user: user.userId }).sort(
+      "-orderDate"
+    );
+    if (!orders || orders.length === 0) {
+      return res
+        .status(404)
+        .send(ErrorResponseWithMessage("Sipariş bulunamadı."));
+    }
+    return res.status(200).send(SuccessResponse(orders));
+  } catch (e) {
+    return res.status(500).send(ErrorResponse(e));
+  }
+}
+
+export async function makeSuccessOrder(
+  req: express.Request,
+  res: express.Response
+) {
+  const {
+    body: { orderId },
+  } = req;
+  try {
+    const order = await OrderSchemas.findById(orderId);
+    if (!order) {
+      return res
+        .status(404)
+        .send(ErrorResponseWithMessage("Sipariş bulunamadı."));
+    }
+    order.status = "paymentSuccess";
+    order.statusExplanation = STATUS_EXPLAINATION.paymentSuccess;
+    const savedOrder = await order.save();
+
+    // find product and update stock
+    const productIds: Array<any> = [];
+    savedOrder.products.forEach((product) => {
+      const isAddedBefore = productIds.some(
+        (x) => x === product.productId.toString()
+      );
+      if (!isAddedBefore) {
+        productIds.push(product.productId.toString());
+      }
+    });
+
+    const products = await ProductSchema.find({ _id: { $in: productIds } });
+
+    products.forEach((product: IProduct) => {
+      savedOrder.products.forEach((orderProduct: IOrder) => {
+        if (product._id.toString() === orderProduct.productId.toString()) {
+          product.stockStatus.forEach((stock) => {
+            updateStock(stock, orderProduct);
+          });
+        }
+      });
+    });
+
+    // update product stock
+    for (const product of products) {
+      await product.save();
+    }
+
+    return res.status(201).send(SuccessResponse(savedOrder));
+  } catch (e) {
+    console.error(e);
+    return res.status(500).send(ErrorResponse(e));
+  }
+}
+
+// admins
+
+export async function getAllOrders(
+  req: express.Request,
+  res: express.Response
+) {
+  try {
+    // get all orders
+    const orders = await OrderSchemas.find();
+    if (!orders || orders.length === 0) {
+      return res
+        .status(404)
+        .send(ErrorResponseWithMessage("Sipariş bulunamadı."));
+    }
+    return res.status(200).send(SuccessResponse(orders));
+  } catch (e) {
+    return res.status(500).send(ErrorResponse(e));
+  }
+}
+
+function updateStock(product: IProductItem, cart: IOrder) {
+  if (
+    product.size === cart.size &&
+    product.color.toString() === cart.color.toString()
+  ) {
+    product.quantity -= cart.quantity;
   }
 }

@@ -15,6 +15,9 @@ export const OrderValidation = Joi.object({
     .valid(...SIZES)
     .required(),
   isReturned: Joi.boolean().required(),
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  color: Joi.objectId().required(),
 }).meta({ className: "IOrder" });
 
 export const OrderHistoryValidation = Joi.object({

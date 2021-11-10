@@ -3,7 +3,7 @@
  * Do not modify this file manually
  */
 
-import { ICart } from ".";
+import { ICart } from '.';
 
 export interface ILoginUser {
   email: string;
@@ -17,13 +17,10 @@ export interface IRegisterUser {
   email: string;
   fullName: string;
   lastLogin?: Date;
-  orderHistory?: (
-    | string
-    | {
-        _bsontype?: "ObjectId";
-        id?: any;
-      }
-  )[];
+  orderHistory?: (string | {
+    _bsontype?: 'ObjectId';
+    id?: any;
+  })[];
   password: string;
   phone?: string;
   role?: string;

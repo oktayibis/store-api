@@ -28,5 +28,5 @@ export interface IProductItem {
   _id?: string;
   color?: string;
   quantity?: number;
-  size?: "xs" | "s" | "m" | "l" | "xl";
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 }

@@ -17,6 +17,10 @@ const OrderSchemas = new Schema<IOrder>({
     required: true,
     enums: [...SIZES],
   },
+  color: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
   isReturned: {
     type: Boolean,
     default: false,

@@ -27,7 +27,10 @@ export async function addToCart(req: express.Request, res: express.Response) {
 
     const mutatedUser: IRegisterUser = foundUser.toObject() as any;
     const isDuplicated = mutatedUser?.carts?.find(
-      (x) => x.productId?.toString() === body.productId && x.size === body.size
+      (x) =>
+        x.productId?.toString() === body.productId &&
+        x.size === body.size &&
+        body.color === x.color.toString()
     );
 
     if (isDuplicated) {
