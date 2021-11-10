@@ -236,6 +236,41 @@ export async function getAllOrders(
   }
 }
 
+export async function addCargoNumber(
+  req: express.Request,
+  res: express.Response
+) {
+  const {
+    body: { orderId, cargoNumber, cargoCompany },
+  } = req;
+
+  if (!orderId || !cargoNumber || !cargoCompany) {
+    return res
+      .status(400)
+      .send(
+        ErrorResponseWithMessage(
+          "orderId, cargoNumber ve cargoCompany zorunludur."
+        )
+      );
+  }
+  try {
+    const order = await OrderSchemas.findById(orderId);
+    if (!order) {
+      return res
+        .status(404)
+        .send(ErrorResponseWithMessage("Sipariş bulunamadı."));
+    }
+    order.cargoNumber = cargoNumber;
+    order.status = "inCargo";
+    order.cargoCompany = cargoCompany;
+    order.statusExplanation = STATUS_EXPLAINATION.inCargo;
+    const savedOrder = await order.save();
+    return res.status(200).send(SuccessResponse(savedOrder));
+  } catch (e) {
+    return res.status(500).send(ErrorResponse(e));
+  }
+}
+
 function updateStock(product: IProductItem, cart: IOrder) {
   if (
     product.size === cart.size &&

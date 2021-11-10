@@ -40,6 +40,10 @@ const OrderHistory = new Schema<IOrderHistory>({
   cargoNumber: {
     type: String,
   },
+  cargoCompany: {
+    type: String,
+    default: null,
+  },
   statusExplanation: {
     type: String,
   },

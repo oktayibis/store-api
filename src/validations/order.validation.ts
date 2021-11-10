@@ -27,6 +27,7 @@ export const OrderHistoryValidation = Joi.object({
   products: Joi.array().items(OrderValidation),
   stripeSecretKey: Joi.string().required(),
   cargoNumber: Joi.string(),
+  cargoCompany: Joi.string(),
   orderDate: Joi.date().required(),
   status: Joi.string()
     .valid(...ORDER_STATUS)

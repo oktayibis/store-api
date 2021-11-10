@@ -4,43 +4,31 @@
  */
 
 export interface IOrder {
-  color:
-    | string
-    | {
-        _bsontype?: "ObjectId";
-        id?: any;
-      };
+  color: string | {
+    _bsontype?: 'ObjectId';
+    id?: any;
+  };
   isReturned: boolean;
-  productId:
-    | string
-    | {
-        _bsontype?: "ObjectId";
-        id?: any;
-      };
+  productId: string | {
+    _bsontype?: 'ObjectId';
+    id?: any;
+  };
   quantity: number;
-  size: "xs" | "s" | "m" | "l" | "xl";
+  size: 'xs' | 's' | 'm' | 'l' | 'xl';
 }
 
 export interface IOrderHistory {
+  cargoCompany?: string;
   cargoNumber?: string;
   orderDate: Date;
-  paymentMethod: "credit-card" | "transfer" | "paypal" | "cash";
+  paymentMethod: 'credit-card' | 'transfer' | 'paypal' | 'cash';
   products?: IOrder[];
-  status:
-    | "paymentWaiting"
-    | "paymentSuccess"
-    | "paymentFail"
-    | "orderPrep"
-    | "inCargo"
-    | "delivered"
-    | "error";
+  status: 'paymentWaiting' | 'paymentSuccess' | 'paymentFail' | 'orderPrep' | 'inCargo' | 'delivered' | 'error';
   statusExplanation?: string;
   stripeSecretKey: string;
   totalPrice: number;
-  user?:
-    | string
-    | {
-        _bsontype?: "ObjectId";
-        id?: any;
-      };
+  user?: string | {
+    _bsontype?: 'ObjectId';
+    id?: any;
+  };
 }
